@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import UserContext from './context/UserContext'
 import LoginPage from './views/LoginPage'
 import HomePage from './views/HomePage'
+import { Routes, Route } from 'react-router-dom'
 
 const App = () => {
   // Setting the default values 
@@ -14,8 +15,10 @@ const App = () => {
   return (
     // "Instantiating the class" with default values 
     <UserContext.Provider value={{ user, setUser }}>
-      <HomePage />
-      <LoginPage />
+      <Routes>
+        <Route path='/' element={<HomePage />} />
+        <Route path='/login' element={<LoginPage />} />
+      </Routes>
     </UserContext.Provider>
   )
 }
