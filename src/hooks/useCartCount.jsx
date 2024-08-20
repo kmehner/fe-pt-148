@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 
 const useCartCount = () => {
   const [cartCount, setCartCount] = useState(0)
@@ -15,11 +15,11 @@ const useCartCount = () => {
     const data = await response.json(); 
 
     console.log(data); 
+
+    setCartCount(data.products.length)
   }
-  
-  return (
-    <div>useCartCount</div>
-  )
+
+  return cartCount
 }
 
 export default useCartCount
